@@ -1,0 +1,16 @@
+{
+  "name": "ai",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@cloudbase/extension-ci": "^0.2.1",
+    "tcb-js-sdk": "^1.6.1",
+    "wx-server-sdk": "latest"
+  }
+}
