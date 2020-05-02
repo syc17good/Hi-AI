@@ -57,3 +57,10 @@
 
 
 </view>
+
+<view>
+ a:<input id="a" type="text" style="border:solid 1px black;" value="{{a}}" bindinput="input"></input>
+ b:<input id="b" type="text" style="border:solid 1px black;" value="{{b}}" bindinput="input"></input>
+ <button bindtap="sum">云函数计算</button>
+ =<text>{{sum}}</text>
+</view>

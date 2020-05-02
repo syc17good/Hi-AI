@@ -7,7 +7,10 @@ Page({
     userInfo: {},
     logged: false,
     takeSession: false,
-    requestResult: ''
+    requestResult: '',
+    a:null,
+    b:null,
+    sum:''
   },
 
   onLoad: function() {
@@ -117,4 +120,44 @@ Page({
     })
   },
 
+  input(e){
+    
+    if (e.currentTarget.id=='a'){
+      this.setData({
+        a:e.detail.value
+      })
+    } else if (e.currentTarget.id == 'b'){
+      this.setData({
+        b: e.detail.value
+      })
+    }
+  },
+  sum(){
+    const that = this
+    
+    if (that.data.a ==null || that.data.b==null){
+      wx.showToast({
+        title: '请输入完整',
+      })
+      return
+    }
+    
+    wx.cloud.callFunction({
+      name: 'sum',
+      data: {
+        a:that.data.a,
+        b:that.data.b
+      },
+      success: res => {
+        
+        that.setData({
+          sum: res.result.sum
+        })
+      },
+      fail: err => {
+        console.error('[云函数] [login] 调用失败', err)
+        
+      }
+    })
+  }
 })
