@@ -1,0 +1,33 @@
+<!--miniprogram/pages/ai.wxml-->
+<!-- <button bindtap="chooseImage">选择图片</button>
+<image src="{{imgUrl}}"></image>
+<text>鉴黄审核结果：{{pornInfo}}</text>
+<text>广告审核结果：{{adsInfo}}</text> -->
+<view class="item-text">
+  <text class="desc">上传图片，会自动显示图片的主要特征标签</text>
+</view>
+<view class="{{imgBoder}}">
+  <image class="img" mode="aspectFit" src="{{imgUrl}}"></image>
+</view>
+<view wx:if="{{isResult}}" class="item-result-err">
+  <view class="item-result-view-err">
+    <text class="item-result-text-err">{{errDesc}}</text>
+  </view>
+</view>
+<view class="item-result">
+  <view wx:for="{{imgResult}}" wx:key="*this" class="item-result-view">
+    <text class="item-result-text">{{item.Name}}</text>
+  </view> 
+</view>
+<view class="item-upload" bindtap="chooseImage">
+  <view style="margin:auto;width:50%;">
+    <view class="item-cloud item-cloud-img">
+      <image class="cloud-upload-img" mode="aspectFit" src="../../images/ai/cloud_upload.png"></image>
+      <text class="cloud-upload-text">上传</text>
+  </view>
+    <!-- <view class="item-cloud item-cloud-line">
+      <text class="cloud-line"></text>
+    </view> -->
+  </view>
+</view>
+
